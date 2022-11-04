@@ -19,8 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Operateur implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -66,6 +65,17 @@ public class Operateur implements Serializable{
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	public Operateur(Long idOperateur, String nom, String prenom, String password, Set<Facture> factures) {
+		super();
+		this.idOperateur = idOperateur;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.password = password;
+		this.factures = factures;
+	}
+	public Operateur() {
+		super();
 	}
 	
 }
