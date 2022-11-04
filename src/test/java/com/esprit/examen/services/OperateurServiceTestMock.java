@@ -1,5 +1,4 @@
 package com.esprit.examen.services;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
@@ -27,49 +26,48 @@ import com.esprit.examen.repositories.OperateurRepository;
 public class OperateurServiceTestMock {
 	@Mock
 	OperateurRepository operateurRepository;
-	
+
 	@InjectMocks
 	OperateurServiceImpl operateurService;
-	
-	
+
 	@Test
 	public void retrieveAllOperateursTest() {
-		when(operateurRepository.findAll()).thenReturn(Stream.of(new Operateur((long)1,"nc","ali","pwd", null), new Operateur((long)2,"nc","nour","pwd", null), 
-				new Operateur((long)3,"nc","malek","pwd", null)).collect(Collectors.toList()));
+		when(operateurRepository.findAll()).thenReturn(Stream.of(
+                new Operateur((long)1,"Rain","Do","Niar", null),
+                new Operateur((long)2,"Rain","Sometimes","Niar", null), 
+				new Operateur((long)3,"Rain","Codes","Niar", null))
+                .collect(Collectors.toList()));
 		assertEquals(3,operateurService.retrieveAllOperateurs().size());
 		
 	}
-	
+
 	@Test
 	public void addOperateurTest() {
-		Operateur op = new Operateur((long)1,"nciri","med","pwdd", null) ;
+		Operateur op = new Operateur((long) 1, "NiAr", "ForFun", "MoreComplexPassword", null);
 		when(operateurRepository.save(op)).thenReturn(op);
-		assertEquals(op,operateurService.addOperateur(op));
+		assertEquals(op, operateurService.addOperateur(op));
 	}
-	
-	
+
 	@Test
 	public void retreiveOperateurTest() {
-		Operateur op = new Operateur((long)2,"nciri","med","pwdd", null) ;
+		Operateur op = new Operateur((long) 2, "NiAr", "ForFun", "MoreComplexPassword", null);
 		when(operateurRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(op));
-		Operateur op1= operateurService.retrieveOperateur((long)2);
+		Operateur op1 = operateurService.retrieveOperateur((long) 2);
 		Assertions.assertNotNull(op1);
-		
+
 	}
-	
-	
-	
+
 	@Test
 	public void deleteOperateurTest() {
-		Operateur op = new Operateur((long)1,"nciri","med","pwdd", null) ;
-		operateurService.deleteOperateur((long)1);
-		verify(operateurRepository).deleteById((long)1);
-		
+		Operateur op = new Operateur((long) 1, "NiAr", "ForFun", "MoreComplexPassword", null);
+		operateurService.deleteOperateur((long) 1);
+		verify(operateurRepository).deleteById((long) 1);
+
 	}
-	
+
 	@Test
 	public void updatetOperateurTest() {
-		Operateur op = new Operateur((long)1,"nciri","med","pwdd", null) ;
+		Operateur op = new Operateur((long)1,"NiAr","ForFun","MoreComplexPassword", null) ;
 		Mockito.when(operateurRepository.save(Mockito.any(Operateur.class))).thenReturn(op);
 		op.setPrenom("mohamed");;
 		Operateur exisitingOp= operateurService.updateOperateur(op) ;
@@ -78,10 +76,4 @@ public class OperateurServiceTestMock {
 		assertEquals("mohamed", op.getPrenom());
 	}
 
-	
-	
-		
-	
-	
-	
 }
