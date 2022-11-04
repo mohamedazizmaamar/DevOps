@@ -6,8 +6,8 @@ pipeline {
                    
                 steps{
                         echo 'Pulling...';
-                        git branch: 'donia',
-                        url : 'https://github.com/hajerhassine/ProjetDevOps.git';
+                        git branch: 'aziz',
+                        url : 'https://github.com/MohamedAzizMaamar/DevOps.git';
                     }
                 }
        
@@ -33,7 +33,7 @@ pipeline {
         
         stage('SonarQube analysis 1') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Admin123456789'
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin'
             }
         }
        
