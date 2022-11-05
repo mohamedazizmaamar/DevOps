@@ -1,39 +1,73 @@
 package com.esprit.examen.services;
 
-import static org.junit.Assert.assertEquals;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.springframework.util.Assert;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.time.*;
 import org.junit.Test;
-
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.esprit.examen.entities.Facture;
 
-import lombok.extern.slf4j.Slf4j;
-
-@RunWith(SpringRunner.class)
 @SpringBootTest
-@Slf4j
 public class FactureServiceImplTest {
-	@Autowired
-	IFactureService factureService;
-	private static final Logger l =LogManager.getLogger(FactureServiceImplTest.class);
-	@Test
-	public void testgetAllFactures(){
-		 	l.info("In testgetAllFactures()");
-		 List<Facture> employes =factureService.retrieveAllFactures();
-	     Assert.notNull(employes,"get factures null");
-	     l.info("Out testgetAllFactures()");
-	}
+@Autowired
+IFactureService factureService;
+
+//testing Add method
+@Test
+public void testAddFacture(){
+List<Facture> factures = factureService.retrieveAllFactures();
+int expected = factures.size();
+Facture o = new Facture();
+o.setMontantFacture((float) 12.5);
+o.setMontantRemise((float) 12.3);
+Date m = new Date(2014,02,11);
+o.setDateCreationFacture(m);
+o.setDateDerniereModificationFacture(m);
+Facture savedOperateur= factureService.addFacture(o);
+assertEquals(expected+1, factureService.retrieveAllFactures().size());
+assertNotNull(savedOperateur.getMontantFacture());
+factureService.cancelFacture(savedOperateur.getIdFacture());}
+
+@Test
+public void testRetrieveFactures() {
+Facture o = new Facture();
+o.setMontantFacture((float) 12.5);
+o.setMontantRemise((float) 12.3);
+Date m = new Date(2014,02,11);
+o.setDateCreationFacture(m);
+o.setDateDerniereModificationFacture(m);
+Facture savedFacture= factureService.addFacture(o);
+Facture getFacture= factureService.retrieveFacture(savedFacture.getIdFacture());
+assertNotNull(savedFacture.getMontantFacture());
+assertNotNull(savedFacture.getMontantRemise());
+assertNotNull(savedFacture.getDateCreationFacture());
+assertNotNull(savedFacture.getDateDerniereModificationFacture());
+assertEquals(savedFacture.getIdFacture(),getFacture.getIdFacture());
+
+factureService.cancelFacture(savedFacture.getIdFacture());
+}
+
+
+
+
+//Testing deleteOperateur
+@Test
+public void testDeleteFacture() {
+Facture o = new Facture();
+o.setMontantFacture((float) 12.5);
+o.setMontantRemise((float) 12.3);
+Date m = new Date(2014,02,11);
+o.setDateCreationFacture(m);
+o.setDateDerniereModificationFacture(m);
+Facture savedFacture= factureService.addFacture(o);
+factureService.cancelFacture(savedFacture.getIdFacture());
+assertNotNull(savedFacture.getIdFacture());
+
+}
 }

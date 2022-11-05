@@ -25,6 +25,7 @@ public class FactureServiceImpl implements IFactureService {
 
 	@Autowired
 	FactureRepository factureRepository;
+
 	@Autowired
 	OperateurRepository operateurRepository;
 	@Autowired
