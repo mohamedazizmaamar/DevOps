@@ -1,9 +1,7 @@
 package com.esprit.examen.services;
-
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -16,9 +14,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.esprit.examen.entities.Stock;
-import com.esprit.examen.repositories.StockRepository;
 
+import com.esprit.examen.entities.Stock;
+
+import com.esprit.examen.repositories.StockRepository;
+import com.esprit.examen.services.IStockService;
+import com.esprit.examen.services.StockServiceImpl;
 @ExtendWith(MockitoExtension.class)
 
 public class StockserviceTestMock {
