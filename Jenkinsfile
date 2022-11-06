@@ -50,12 +50,7 @@ pipeline {
                 }
             }
         }
-        stage('NEXUS') {
-            steps {
-                sh 'mvn deploy -DskipTests'
-                  
-            }
-        }
+        
         stage('Docker build')
         {
             steps {
@@ -83,7 +78,12 @@ pipeline {
                         }
                           
         }
-        
+        stage('NEXUS') {
+            steps {
+                sh 'mvn deploy -DskipTests'
+                  
+            }
+        }
        
        
     }
