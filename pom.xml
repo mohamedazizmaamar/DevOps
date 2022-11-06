@@ -8,8 +8,8 @@
 		<version>2.5.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>tn.esprit.rh</groupId>
-	<artifactId>achat</artifactId>
+	<groupId>com.esprit.examen</groupId>
+	<artifactId>tpAchat</artifactId>
 	<version>1.0</version>
 	 <distributionManagement>
         <repository>
