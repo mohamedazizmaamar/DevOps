@@ -121,7 +121,7 @@
 <distributionManagement>
 <repository>
 <id>demo</id>
-<name>Nexus repository</name>
+<name>Nexus_repository</name>
 <url>http://192.168.1.183:8081/repository/demo/</url>
 </repository>
 </distributionManagement>
