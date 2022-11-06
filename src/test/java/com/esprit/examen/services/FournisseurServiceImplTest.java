@@ -16,9 +16,9 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import tn.esprit.rh.achat.entities.CategorieFournisseur;
-import tn.esprit.rh.achat.entities.Fournisseur;
-import tn.esprit.rh.achat.repositories.FournisseurRepository;
+import com.esprit.examen.entities.CategorieFournisseur;
+import com.esprit.examen.entities.Fournisseur;
+import com.esprit.examen.repositories.FournisseurRepository;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
