@@ -74,6 +74,11 @@ pipeline {
         	}
         	}
         
+       stage('Run app With DockerCompose') {
+              steps {
+                  sh "docker-compose -f docker-compose.yml up -d  "
+              }
+              }
       
         
     stage('Cleaning up') {
