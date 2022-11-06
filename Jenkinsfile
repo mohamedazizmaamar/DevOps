@@ -70,6 +70,12 @@ pipeline {
 				sh 'docker push h123abidi/achat'
 			}
 		}
+		stage('NEXUS') {
+            steps {
+                sh 'mvn deploy -DskipTests'
+                  
+            }
+        }
        stage('DockerCompose') {
         
                        steps {
