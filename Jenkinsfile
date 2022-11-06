@@ -58,5 +58,28 @@ pipeline {
                   
             }
         }
+        stage('Build image') {
+           	steps {
+       		 sh "docker build -t mohamedazizmaamar/devopsdocker ."
+       		}
+       		}        
+        
+        
+        stage('Push image') {
+ 			steps {
+ 			    withDockerRegistry([ credentialsId: "DockerHub", url: "" ]) {
+ 			
+        	  sh "docker push mohamedazizmaamar/devopsdocker"
+        	}
+        	}
+        	}
+        
+      
+        
+    stage('Cleaning up') {
+         steps {
+			sh "docker rmi -f mohamedazizmaamar/devopsdocker"
+         }
+     }    
     }
 }
