@@ -8,11 +8,11 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
       - MYSQL_DATABASE=tpachato
     ports:
-      - "4000:3306"
+      - "3309:3306"
     volumes:
       - db:/var/lib/mysql
   app:
-    image: houssemchebbi/achat:41
+    image: houssemchebbi/achat:1
     depends_on:
       - mysqldb
     restart: on-failure
