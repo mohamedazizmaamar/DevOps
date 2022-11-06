@@ -30,7 +30,11 @@ pipeline {
                  
             }
         }
+<<<<<<< HEAD
           stage('JUnit and Mockito Test'){
+=======
+                     stage('JUnit and Mockito Test'){
+>>>>>>> b05e93571595cc2d53c8d1eb2d068e9f68c47213
             steps{
                 script
                 {
@@ -50,7 +54,11 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin'
             }
         }
+<<<<<<< HEAD
       
+=======
+   
+>>>>>>> b05e93571595cc2d53c8d1eb2d068e9f68c47213
         
        
        
