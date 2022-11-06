@@ -30,11 +30,7 @@ pipeline {
                  
             }
         }
-<<<<<<< HEAD
-          stage('JUnit and Mockito Test'){
-=======
-                     stage('JUnit and Mockito Test'){
->>>>>>> b05e93571595cc2d53c8d1eb2d068e9f68c47213
+         stage('JUnit and Mockito Test'){
             steps{
                 script
                 {
@@ -48,19 +44,43 @@ pipeline {
                     }
                 }
             }
+       
         }
-         stage('SonarQube analysis 1') {
+        stage('SonarQube analysis 1') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin'
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin1'
             }
         }
-<<<<<<< HEAD
-      
-=======
-   
->>>>>>> b05e93571595cc2d53c8d1eb2d068e9f68c47213
+         stage('Build image') {
+           	steps {
+       		 sh "docker build -t hammouda997/devopsdocker ."
+       		}
+       		}        
         
+        
+        stage('Push image') {
+ 			steps {
+ 			    withDockerRegistry([ credentialsId: "DockerHub", url: "" ]) {
+ 			
+        	  sh "docker push hammouda997/devopsdocker"
+        	}
+        	}
+        	}
+        
+      
+        
+    stage('Cleaning up') {
+         steps {
+			sh "docker rmi -f hammouda997/devopsdocker"
+         }
+     }    
+    }
        
-       
+        stage('NEXUS') {
+            steps {
+                sh 'mvn deploy -DskipTests'
+                  
+            }
+        }
     }
 }
