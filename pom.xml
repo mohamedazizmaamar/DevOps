@@ -86,7 +86,7 @@
         <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.1.0</version> 
+          <version>3.1.0</version>
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -124,7 +124,7 @@
 <repository>
 <id>deploymentRepo</id>
 <name>Nexus repository</name>
-<url>http://192.168.1.25:8081/repository/maven-snapshots/</url>
+<url>http://192.168.1.157:8081/repository/maven-releases/</url>
 </repository>
 </distributionManagement>
 
