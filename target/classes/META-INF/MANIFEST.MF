@@ -1,10 +1,9 @@
 Manifest-Version: 1.0
 Built-By: chebb
 Build-Jdk: 17.0.1
-Implementation-Title: tpAchatProject
+Implementation-Title: tpAchat
 Implementation-Version: 1.0
 Implementation-Vendor-Id: com.esprit.examen
-Implementation-URL: https://spring.io/projects/spring-boot/tpAchatProjec
- t
+Implementation-URL: https://spring.io/projects/spring-boot/tpAchat
 Created-By: Maven Integration for Eclipse
 
