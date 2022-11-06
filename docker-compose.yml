@@ -12,7 +12,7 @@ services:
     volumes:
       - db:/var/lib/mysql
   app:
-    image: houssemchebbi/achat:1
+    image: houssemchebbi/achat:43
     depends_on:
       - mysqldb
     restart: on-failure
