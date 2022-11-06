@@ -56,6 +56,33 @@ pipeline {
                   
             }
         }
+        stage('Docker build')
+        {
+            steps {
+                 sh 'docker build -t h123abidi/achat  .'
+            }
+        }
+        stage('Docker login')
+        {
+            steps {
+                sh 'echo $dockerhub_PSW | docker login -u h123abidi -p dckr_pat_JNwXVh3lgf36cdiVz3RnBgU6aQ4'
+            }    
+       
+        }
+      stage('Push') {
+
+			steps {
+				sh 'docker push h123abidi/achat'
+			}
+		}
+       stage('DockerCompose') {
+        
+                       steps {
+                                sh 'cd /var/lib/jenkins/workspace/devopsProject'
+								sh 'docker-compose up -d'
+                        }
+                          
+        }
         
        
        
