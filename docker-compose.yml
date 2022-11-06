@@ -1,24 +1,34 @@
-version: "3"
+version: "2"
+
 services:
-  mysql-standalone:
-    image: mysql:latest
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=tpachato
-      - MYSQL_PASSWORD=root
-    ports:
-      - 3306:3306
-    restart : on-failure
-  achatproject:
-    image: houssem/tpachato
-    ports:
-      - 8089:8089
-    restart: unless-stopped
-    environment :
-      -SPRING_DATASOURCE_URL: jdbc:mysql://mysql-standalone:3306/tpachato?autoReconnect=true&failOverReadOnly=false&maxReconnects=10
-      -SPRING_DATASOURCE_USERNAME : root
-      -SPRING_DATASOURCE_PASSWORD : root
-    depends_on:
-      - mysql-standalone
-    links:
-      - mysql-standalone:mysql-standalone
+ mysqldb:
+   image: mysql:5.7
+   restart: unless-stopped
+   environment:
+     - MYSQL_DATABASE=tpachato
+   ports:
+      - "3306:3306"
+   volumes:
+      - db:/var/lib/mysql
+ app:
+   depends_on:
+     - mysqldb
+   build: .
+   restart: on-failure
+   ports:
+     - "8089:8089"
+   environment:
+     SPRING_APPLICATION_JSON: '{
+       "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/tpachato?useSSL=false",
+       "spring.datasource.username" : "root",
+       "spring.datasource.password" : "root",
+       "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+       "spring.jpa.hibernate.ddl-auto" : "update"}'
+   stdin_open: true
+   tty: true
+   
+   
+ 
+
+volumes:
+ db:

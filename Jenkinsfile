@@ -76,14 +76,12 @@ pipeline {
                   
             }
         }
-       stage('DockerCompose') {
         
-                       steps {
-                                sh 'cd /var/lib/jenkins/workspace/devopsProject-1.0'
-								sh 'docker-compose up -d'
-                        }
-                          
-        }
+       stage('Run app With DockerCompose') {
+              steps {
+                  sh "docker-compose -f docker-compose.yml up -d  "
+              }
+              }
         
        
        
