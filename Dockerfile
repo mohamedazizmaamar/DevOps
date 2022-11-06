@@ -1,7 +1,4 @@
 FROM maven:3.8.2-jdk-8
+ADD target/achat-1.0.jar achat-1.0.jar
+ENTRYPOINT ["java","-jar","/achat.jar"]
 
-WORKDIR /spring-app
-COPY . .
-RUN mvn clean install
-
-CMD mvn spring-boot:run
