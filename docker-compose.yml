@@ -12,7 +12,7 @@ services:
     volumes:
       - db:/var/lib/mysql
   app:
-    image: alasoltani/achat:1
+    image: alasoltani/achat:30
     depends_on:
       - mysqldb
     restart: on-failure
