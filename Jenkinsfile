@@ -79,20 +79,21 @@ pipeline {
                   sh "docker-compose -f docker-compose.yml up -d  "
               }
               }
-      stage('Sending email'){
-            steps {
-             mail bcc: '', body: '''Hello from MohamedAziz,
-             Devops Pipeline with success.
-             Cordialement''', cc: '', from: '', replyTo: '', subject: 'Devops Timesheet', to: 'mohamedaziz.maamar@esprit.tn'
-             }
-        }
-}
-        
-    stage('Cleaning up') {
+       
+     stage('Cleaning up') {
          steps {
 			sh "docker rmi -f mohamedazizmaamar/devopsdocker"
          }
-     } 
-        
-    }
+     }  
+stage('Sending email'){
+           steps {
+            mail bcc: '', body: '''Hello from mohamedazizmaamar,
+            Devops Pipeline with success.
+            Cordialement''', cc: '', from: '', replyTo: '', subject: 'Devops', to: 'mohamedaziz.maamar@esprit.tn'
+            }
+       }
 }
+}
+        
+   
+ 
