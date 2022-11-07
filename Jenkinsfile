@@ -74,7 +74,7 @@ pipeline {
 			sh "docker rmi -f hammouda997/devopsdocker"
          }
      }    
-    }
+    
        
         stage('NEXUS') {
             steps {
