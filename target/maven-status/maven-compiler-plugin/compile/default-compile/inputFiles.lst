@@ -1,8 +1,8 @@
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\repositories\ReglementRepository.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\controllers\FournisseurRestController.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\repositories\OperateurRepository.java
+C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\services\IReglementService.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\services\FournisseurServiceImpl.java
-C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\controllers\SecteurActiviteController.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\repositories\StockRepository.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\entities\DetailFacture.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\entities\Reglement.java
@@ -11,8 +11,10 @@ C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\entities\
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\services\SecteurActiviteServiceImpl.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\entities\CategorieProduit.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\entities\SecteurActivite.java
+C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\services\FactureServiceImpl.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\repositories\CategorieProduitRepository.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\entities\Operateur.java
+C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\services\ReglementServiceImpl.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\repositories\ProduitRepository.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\entities\Stock.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\repositories\DetailFactureRepository.java
@@ -20,8 +22,11 @@ C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\services\
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\TpAchatProjectApplication.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\services\IFournisseurService.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\repositories\FactureRepository.java
+C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\services\OperateurServiceImpl.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\SpringFoxSwaggerConfig.java
+C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\services\IOperateurService.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\entities\CategorieFournisseur.java
+C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\services\IFactureService.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\repositories\FournisseurRepository.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\repositories\SecteurActiviteRepository.java
 C:\Users\chebb\Documents\GitHub\DevOps\src\main\java\com\esprit\examen\entities\Produit.java
