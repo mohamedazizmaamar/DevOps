@@ -51,36 +51,40 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin1'
             }
         }
-         stage('Build image') {
-           	steps {
-       		 sh "docker build -t hammouda997/devopsdocker ."
-       		}
-       		}        
-        
-        
-        stage('Push image') {
- 			steps {
- 			    withDockerRegistry([ credentialsId: "DockerHub", url: "" ]) {
- 			
-        	  sh "docker push hammouda997/devopsdocker"
-        	}
-        	}
-        	}
-        
-      
-        
-    stage('Cleaning up') {
-         steps {
-			sh "docker rmi -f hammouda997/devopsdocker"
-         }
-     }    
-    
+       stage('Docker build')
+        {
+            steps {
+                 sh 'docker build -t hammouda997/achat  .'
+            }
+        }
+        stage('Docker login')
+        {
+            steps {
+                sh 'echo $dockerhub_PSW | docker login -u hammouda997 -p dckr_pat_JEx-Xhde4T-nwgJTdlmg1tn0yQ8'
+            }    
        
+        }
+      stage('Push') {
+
+			steps {
+				sh 'docker push hammouda997/achat'
+			}
+		}
         stage('NEXUS') {
             steps {
                 sh 'mvn deploy -DskipTests'
                   
             }
         }
+        
+       stage('Run app With DockerCompose') {
+              steps {
+                  sh "docker-compose -f docker-compose.yml up -d  "
+              }
+              }
+        
+       
+       
+    }
     }
 }
