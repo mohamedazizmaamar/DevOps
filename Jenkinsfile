@@ -86,7 +86,7 @@ pipeline {
               }
              stage('Cleaning up') {
          steps {
-			sh "docker rmi -f mohamedazizmaamar/devopsdocker"
+			sh "docker rmi -f hammouda997/achat"
          }
      } 
        stage('Sending email'){
