@@ -11,8 +11,10 @@ services:
    volumes:
       - db:/var/lib/mysql
  app:
-   depends_on:
+   image:  mohamedazizmaamar/devopsdocker
+   depends_on: 
      - mysqldb
+     
    build: .
    restart: on-failure
    ports:
