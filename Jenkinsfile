@@ -87,9 +87,9 @@ pipeline {
         
        stage('Sending email'){
            steps {
-            mail bcc: '', body: '''Hello from Donia,
+            mail bcc: '', body: '''Hello from Hammouda,
             Devops Pipeline with success.
-            Cordialement''', cc: '', from: '', replyTo: '', subject: 'Devops', to: 'donia.kacem@esprit.tn'
+            Cordialement''', cc: '', from: '', replyTo: '', subject: 'Devops', to: 'hammouda.msaad@esprit.tn'
             }
        }
        
