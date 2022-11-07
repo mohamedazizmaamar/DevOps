@@ -1,5 +1,5 @@
 FROM openjdk:8
-EXPOSE 8089
+EXPOSE 8088
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
