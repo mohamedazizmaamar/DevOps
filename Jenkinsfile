@@ -84,7 +84,11 @@ pipeline {
                   sh "docker-compose -f docker-compose.yml up -d  "
               }
               }
-        
+             stage('Cleaning up') {
+         steps {
+			sh "docker rmi -f mohamedazizmaamar/devopsdocker"
+         }
+     } 
        stage('Sending email'){
            steps {
             mail bcc: '', body: '''Hello from Hammouda,
