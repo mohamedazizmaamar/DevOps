@@ -46,11 +46,18 @@ pipeline {
             }
        
         }
+		 stage('NEXUS') {
+            steps {
+                sh 'mvn deploy -DskipTests'
+                  
+            }
+        }
         stage('SonarQube analysis 1') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=admin1'
             }
         }
+		
        stage('Docker build')
         {
             steps {
@@ -70,12 +77,7 @@ pipeline {
 				sh 'docker push hammouda997/achat'
 			}
 		}
-        stage('NEXUS') {
-            steps {
-                sh 'mvn deploy -DskipTests'
-                  
-            }
-        }
+       
         
        stage('Run app With DockerCompose') {
               steps {
